@@ -11,6 +11,7 @@
   </Folder>
   <Folder Name="/src/Services/" />
   <Folder Name="/src/Services/Catalog/">
+    <Project Path="ShelfLife.Catalog.Application/ShelfLife.Catalog.Application.csproj" Id="75f5c68e-00f8-410f-b057-1cf7e2675f4e" />
     <Project Path="ShelfLife.Catalog.Domain/ShelfLife.Catalog.Domain.csproj" />
     <Project Path="ShelfLife.Catalog.Infrastructure/ShelfLife.Catalog.Infrastructure.csproj" />
   </Folder>
