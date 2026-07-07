@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShelfLife.Catalog.Application\ShelfLife.Catalog.Application.csproj" />
     <ProjectReference Include="..\ShelfLife.Catalog.Domain\ShelfLife.Catalog.Domain.csproj" />
   </ItemGroup>
 

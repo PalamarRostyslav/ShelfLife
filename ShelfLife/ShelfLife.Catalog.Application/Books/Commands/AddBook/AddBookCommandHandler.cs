@@ -1,24 +1,26 @@
 ﻿using MediatR;
+using ShelfLife.Catalog.Application.Common.Interfaces;
 using ShelfLife.Catalog.Domain.Entities;
-using ShelfLife.Catalog.Infrastructure.Persistence;
 
 namespace ShelfLife.Catalog.Application.Books.Commands.AddBook
 {
     public class AddBookCommandHandler : IRequestHandler<AddBookCommand, Guid>
     {
-        private readonly CatalogDbContext _db;
+        private readonly IBookRepository _books;
+        private readonly IUnitOfWork _uow;
 
-        public AddBookCommandHandler(CatalogDbContext db)
+        public AddBookCommandHandler(IBookRepository books, IUnitOfWork uow)
         {
-            _db = db;
+            _books = books;
+            _uow = uow;
         }
 
         public async Task<Guid> Handle(AddBookCommand request, CancellationToken cancellationToken)
         {
             var book = Book.Create(request.Title, request.Author, request.ISBN, request.PageCount, request.Format, request.ShelfId);
 
-            _db.Books.Add(book);
-            await _db.SaveChangesAsync(cancellationToken);
+            _books.Add(book);
+            await _uow.SaveChangesAsync(cancellationToken);
 
             return book.Id;
         }

@@ -2,7 +2,7 @@
 
 namespace ShelfLife.Catalog.Domain.Entities
 {
-    public class ReadingSession
+    public class ReadingSession : IHasDomainEvents
     {
         public Guid Id { get; private set; }
 
