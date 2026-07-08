@@ -28,6 +28,8 @@ namespace ShelfLife.Catalog.Infrastructure
 
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IShelfRepository, ShelfRepository>();
+            services.AddScoped<IShelfRepository, ShelfRepository>();
+            services.AddScoped<IReadingSessionRepository, ReadingSessionRepository>();
 
             return services;
         }

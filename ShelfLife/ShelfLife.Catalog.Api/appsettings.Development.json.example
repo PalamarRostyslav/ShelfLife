@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "CatalogDb": "Host=localhost;Port=5432;Database=shelflife_catalog;Username=test;Password=shelflife"
+  }
+}
