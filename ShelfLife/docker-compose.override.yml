@@ -1,0 +1,4 @@
+services:
+  catalog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

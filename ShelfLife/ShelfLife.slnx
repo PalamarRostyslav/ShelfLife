@@ -2,7 +2,6 @@
   <Folder Name="/Solution Items/">
     <File Path=".env" />
     <File Path=".gitignore" />
-    <File Path="docker-compose.override.yml" />
     <File Path="docker-compose.yml" />
   </Folder>
   <Folder Name="/src/" />

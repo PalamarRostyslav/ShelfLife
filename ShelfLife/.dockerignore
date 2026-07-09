@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+.vs/
+.vscode/
+.git/
+.gitignore
+.env
+**/appsettings.Development.json
+*.md
