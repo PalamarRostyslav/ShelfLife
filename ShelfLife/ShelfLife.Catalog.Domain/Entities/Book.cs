@@ -45,10 +45,20 @@ namespace ShelfLife.Catalog.Domain.Entities
             };
         }
 
-        public void MoveToShelf(Guid newShelfId, bool isFinishedShelf)
+        public void UpdateDetails(string title, string author, string? isbn, int pageCount, BookFormat format, int? rating)
         {
-            ShelfId = newShelfId;
-            if (isFinishedShelf)
+            Title = title;
+            Author = author;
+            ISBN = isbn;
+            PageCount = pageCount;
+            Format = format;
+            Rating = rating;
+        }
+
+        public void MoveToShelf(Shelf shelf)
+        {
+            ShelfId = shelf.Id;
+            if (shelf.SystemShelfType == SystemShelfType.Finished && FinishedAt is null)
             {
                 FinishedAt = DateTime.UtcNow;
                 _domainEvents.Add(new BookFinished(Id, DateTime.UtcNow));
