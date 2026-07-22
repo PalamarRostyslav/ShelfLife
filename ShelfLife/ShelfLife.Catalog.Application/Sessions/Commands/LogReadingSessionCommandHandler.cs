@@ -11,7 +11,7 @@ namespace ShelfLife.Catalog.Application.Sessions.Commands
         private readonly IReadingSessionRepository _sessions;
         private readonly IUnitOfWork _uow;
 
-        private LogReadingSessionCommandHandler(IBookRepository bookRepository, IReadingSessionRepository sessionsRepository, IUnitOfWork uow)
+        public LogReadingSessionCommandHandler(IBookRepository bookRepository, IReadingSessionRepository sessionsRepository, IUnitOfWork uow)
         {
             _books = bookRepository;
             _sessions = sessionsRepository;
