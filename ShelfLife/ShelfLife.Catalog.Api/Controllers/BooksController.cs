@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShelfLife.Catalog.Application.Books.Commands.AddBook;
 using ShelfLife.Catalog.Application.Books.Queries.GetBookById;
+using ShelfLife.Catalog.Application.Books.Queries.GetBooks;
 
 namespace ShelfLife.Catalog.Api.Controllers
 {
@@ -27,6 +28,14 @@ namespace ShelfLife.Catalog.Api.Controllers
             var book = await _sender.Send(new GetBookByIdQuery(id), cancellationToken);
 
             return book is null ? NotFound() : Ok(book);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetBooks([FromQuery] Guid? selfId, [FromQuery] int skip = 0, [FromQuery] int take = 50, CancellationToken ct = default)
+        {
+            var books = await _sender.Send(new GetBooksQuery(selfId, skip, take), ct);
+
+            return Ok(books);
         }
     }
 }
