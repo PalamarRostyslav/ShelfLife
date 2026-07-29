@@ -1,3 +1,4 @@
+using ShelfLife.Catalog.Api.Middleware;
 using ShelfLife.Catalog.Application;
 using ShelfLife.Catalog.Infrastructure;
 
@@ -16,6 +17,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.MapControllers();
 
 app.Run();
