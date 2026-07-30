@@ -8,6 +8,9 @@
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="ShelfLife.SharedKernel/ShelfLife.SharedKernel.csproj" />
   </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="ShelfLife.Gateway/ShelfLife.Gateway.csproj" Id="404315d6-89bb-4038-90ab-6336e0ecb804" />
+  </Folder>
   <Folder Name="/src/Services/" />
   <Folder Name="/src/Services/Catalog/">
     <Project Path="ShelfLife.Catalog.Api/ShelfLife.Catalog.Api.csproj" />

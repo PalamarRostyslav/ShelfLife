@@ -1,4 +1,4 @@
-services:
+services:  
   catalog.api:
     build:
       context: .
@@ -22,6 +22,19 @@ services:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - catalog_db_data:/var/lib/postgresql/data
+
+  gateway:
+    build:
+      context: .
+      dockerfile: ShelfLife.Gateway/Dockerfile
+    container_name: shelflife-gateway
+    depends_on:
+      - catalog.api
+    environment:
+      Services__Catalog: "http://catalog.api:8080/"
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "5100:8080"
 
 volumes:
   catalog_db_data:
