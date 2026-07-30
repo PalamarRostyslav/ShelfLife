@@ -37,9 +37,9 @@ namespace ShelfLife.Catalog.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBooks([FromQuery] Guid? selfId, [FromQuery] int skip = 0, [FromQuery] int take = 50, CancellationToken ct = default)
+        public async Task<IActionResult> GetBooks([FromQuery] Guid? shelfId, [FromQuery] int skip = 0, [FromQuery] int take = 50, CancellationToken ct = default)
         {
-            var books = await _sender.Send(new GetBooksQuery(selfId, skip, take), ct);
+            var books = await _sender.Send(new GetBooksQuery(shelfId, skip, take), ct);
 
             return Ok(books);
         }
