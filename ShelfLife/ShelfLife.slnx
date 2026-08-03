@@ -5,6 +5,7 @@
     <File Path="docker-compose.yml" />
   </Folder>
   <Folder Name="/src/" />
+  <Folder Name="/src/Clients/" />
   <Folder Name="/src/BuildingBlocks/">
     <Project Path="ShelfLife.SharedKernel/ShelfLife.SharedKernel.csproj" />
   </Folder>
