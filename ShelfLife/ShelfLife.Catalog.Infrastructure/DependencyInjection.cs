@@ -2,9 +2,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ShelfLife.Catalog.Application.Common.Interfaces;
+using ShelfLife.Catalog.Infrastructure.Messaging;
 using ShelfLife.Catalog.Infrastructure.Persistence;
 using ShelfLife.Catalog.Infrastructure.Persistence.Interceptors;
 using ShelfLife.Catalog.Infrastructure.Persistence.Repositories;
+using ShelfLife.Messaging;
 
 namespace ShelfLife.Catalog.Infrastructure
 {
@@ -22,6 +24,11 @@ namespace ShelfLife.Catalog.Infrastructure
                 options.UseNpgsql(connectionString);
                 options.AddInterceptors(sp.GetRequiredService<DomainEventsToOutboxInterceptor>());
             });
+
+            services.Configure<RabbitMqOptions>(configuration.GetSection("RabbitMq"));
+            services.AddSingleton<RabbitMqConnectionManager>();
+            services.AddSingleton<IEventPublisher, RabbitMqEventPublisher>();
+            services.AddHostedService<OutboxDispatcherBackgroundService>();
 
             services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<CatalogDbContext>());
             services.AddScoped<ICatalogDbContext>(sp => sp.GetRequiredService<CatalogDbContext>());

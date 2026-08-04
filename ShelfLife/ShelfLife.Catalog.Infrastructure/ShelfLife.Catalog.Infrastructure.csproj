@@ -12,12 +12,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShelfLife.Catalog.Application\ShelfLife.Catalog.Application.csproj" />
     <ProjectReference Include="..\ShelfLife.Catalog.Domain\ShelfLife.Catalog.Domain.csproj" />
+    <ProjectReference Include="..\ShelfLife.Messaging\ShelfLife.Messaging.csproj" />
   </ItemGroup>
 
 </Project>

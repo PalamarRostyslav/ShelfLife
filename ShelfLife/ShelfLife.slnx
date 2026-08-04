@@ -7,6 +7,7 @@
   <Folder Name="/src/" />
   <Folder Name="/src/Clients/" />
   <Folder Name="/src/BuildingBlocks/">
+    <Project Path="ShelfLife.Messaging/ShelfLife.Messaging.csproj" Id="82e4f645-bd6d-4f45-881f-05cd3d50ff56" />
     <Project Path="ShelfLife.SharedKernel/ShelfLife.SharedKernel.csproj" />
   </Folder>
   <Folder Name="/src/Gateway/">

@@ -25,7 +25,7 @@ namespace ShelfLife.Catalog.Infrastructure.Persistence.Interceptors
                 {
                     Id = domainEvent.EventId,
                     OccurredAt = domainEvent.OccurredAt,
-                    Type = domainEvent.GetType().AssemblyQualifiedName!,
+                    Type = domainEvent.GetType().Name!,
                     Payload = JsonSerializer.Serialize(domainEvent, domainEvent.GetType(), _jsonOptions),
                     ProcessedAt = null
                 })
